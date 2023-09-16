@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text Styler Pro</title>
+    <!-- FontAwesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <link rel="icon" type="image/x-icon" href="fav.png">
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+    
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="options">
+        <!-- Text Format -->
+        <button id="bold" class="option-button format">
+          <i class="fa-solid fa-bold"></i>
+        </button>
+        <button id="italic" class="option-button format">
+          <i class="fa-solid fa-italic"></i>
+        </button>
+        <button id="underline" class="option-button format">
+          <i class="fa-solid fa-underline"></i>
+        </button>
+        <button id="strikethrough" class="option-button format">
+          <i class="fa-solid fa-strikethrough"></i>
+        </button>
+        <button id="superscript" class="option-button script">
+          <i class="fa-solid fa-superscript"></i>
+        </button>
+        <button id="subscript" class="option-button script">
+          <i class="fa-solid fa-subscript"></i>
+        </button>
+
+        <!-- List -->
+        <button id="insertOrderedList" class="option-button">
+          <div class="fa-solid fa-list-ol"></div>
+        </button>
+        <button id="insertUnorderedList" class="option-button">
+          <i class="fa-solid fa-list"></i>
+        </button>
+
+        <!-- Undo/Redo -->
+        <button id="undo" class="option-button">
+          <i class="fa-solid fa-rotate-left"></i>
+        </button>
+        <button id="redo" class="option-button">
+          <i class="fa-solid fa-rotate-right"></i>
+        </button>
+
+        <!-- Link -->
+        <button id="createLink" class="adv-option-button">
+          <i class="fa fa-link"></i>
+        </button>
+        <button id="unlink" class="option-button">
+          <i class="fa fa-unlink"></i>
+        </button>
+
+        <!-- Alignment -->
+        <button id="justifyLeft" class="option-button align">
+          <i class="fa-solid fa-align-left"></i>
+        </button>
+        <button id="justifyCenter" class="option-button align">
+          <i class="fa-solid fa-align-center"></i>
+        </button>
+        <button id="justifyRight" class="option-button align">
+          <i class="fa-solid fa-align-right"></i>
+        </button>
+        <button id="justifyFull" class="option-button align">
+          <i class="fa-solid fa-align-justify"></i>
+        </button>
+        <button id="indent" class="option-button spacing">
+          <i class="fa-solid fa-indent"></i>
+        </button>
+        <button id="outdent" class="option-button spacing">
+          <i class="fa-solid fa-outdent"></i>
+        </button>
+
+        <!-- Headings -->
+        <select id="formatBlock" class="adv-option-button">
+          <option value="H1">H1</option>
+          <option value="H2">H2</option>
+          <option value="H3">H3</option>
+          <option value="H4">H4</option>
+          <option value="H5">H5</option>
+          <option value="H6">H6</option>
+        </select>
+
+        <!-- Font -->
+        <select id="fontName" class="adv-option-button"></select>
+        <select id="fontSize" class="adv-option-button"></select>
+
+        <!-- Color -->
+        <div class="input-wrapper">
+          <input type="color" id="foreColor" class="adv-option-button" />
+          <label for="foreColor">Font Color</label>
+        </div>
+        <div class="input-wrapper">
+          <input type="color" id="backColor" class="adv-option-button" />
+          <label for="backColor">Highlight Color</label>
+        </div>
+      </div>
+      
+      
+      <!-- count words and character and replace character -->
+      <div id="text-input" contenteditable="true"></div>
+       <p>
+        Word Count: <span id="wordCount">0</span><br>
+        Character Count: <span id="charCount">0</span>
+       
+    </p>
+    <div>
+      <input type="text" id="searchInput" placeholder="Enter word to search" />
+      <input type="text" id="replaceInput" placeholder="Enter word to replace with" />
+      <button id="go" onclick="searchAndReplace()">GO</button>
+    </div>
+    <!-- Uppercase and Lowercase Conversion Buttons -->
+    <button id="convertToUppercase" class="option-button" onclick="convertText('uppercase')">
+      UPPERCASE
+    </button>
+    <button id="convertToLowercase" class="option-button" onclick="convertText('lowercase')">
+      lowercase
+    </button>
+</div>
+
+<script>
+  
+
+  function searchAndReplace() {
+    // Get the search and replace input values
+    var searchWord = document.getElementById("searchInput").value;
+    var replaceWord = document.getElementById("replaceInput").value;
+
+    // Get the text from the content-editable div
+    var text = textArea.textContent;
+
+    // Use a regular expression to perform a global search and replace
+    var newText = text.replace(new RegExp(searchWord, "g"), replaceWord);
+
+    // Update the content-editable div with the modified text
+    textArea.textContent = newText;
+
+    // Update word and character counts
+    updateCounts();
+  }
+
+  
+</script>
+
+
+<script>
+
+  
+  
+    // Get the content-editable div element
+    var textArea = document.getElementById("text-input");
+
+    // Get the word count element
+    var wordCount = document.getElementById("wordCount");
+
+    // Get the character count element
+    var charCount = document.getElementById("charCount");
+
+    // Function to update word and character counts
+    function updateCounts() {
+        var text = textArea.textContent;
+        var words = text.split(/\s+/).filter(function (word) {
+            return word.length > 0;
+        });
+        wordCount.textContent = words.length;
+        charCount.textContent = text.length;
+    }
+
+    // Add an event listener to the content-editable div to update counts
+    textArea.addEventListener("input", updateCounts);
+
+    // Initial update when the page loads
+    updateCounts();
+</script>
+<script>
+  
+
+  // Function to convert text to uppercase or lowercase
+  function convertText(mode) {
+    // Get the content-editable div element
+    var textArea = document.getElementById("text-input");
+
+    // Get the text from the content-editable div
+    var text = textArea.textContent;
+
+    // Convert the text based on the selected mode
+    if (mode === "uppercase") {
+      textArea.textContent = text.toUpperCase();
+    } else if (mode === "lowercase") {
+      textArea.textContent = text.toLowerCase();
+    }
+
+    // Update word and character counts
+    updateCounts();
+  }
+</script>
+    <!--Script-->
+    <script src="script.js"></script>
+    
+  </body>
+</html>

@@ -1,0 +1,200 @@
+
+body, h1, h2, h3, h4, h5, h6, p, ul, ol {
+  margin: 0;
+  padding: 0;
+}
+
+/* Set a background color and font family for the entire page */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: rgb(107, 215, 237);
+  color: #333; /* Set the text color */
+}
+
+/* Style the container */
+.container {
+  width: 90vmin;
+  padding: 50px 30px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  border-radius: 10px;
+  box-shadow: 0 25px 50px rgba(7, 20, 35, 0.2);
+  background-color: #fff; /* White background for the container */
+}
+
+/* Style the options bar */
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.option-button, .adv-option-button {
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.option-button:hover, .adv-option-button:hover {
+  background-color: #ddd;
+}
+
+/* Style the text editor area */
+#text-input {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  min-height: 200px;
+  padding: 10px;
+  background-color: #f8f8f8; /* Light gray background */
+  overflow: auto;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the word count and character count */
+#wordCount, #charCount {
+  font-weight: bold;
+  margin-right: 10px;
+  color: #007BFF; /* Blue color for counts */
+}
+
+/* Style the search and replace inputs and button */
+input[type="text"] {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+  background-color: #f8f8f8; /* Light gray background */
+}
+
+#go {
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#go:hover {
+  background-color: #0056b3;
+}
+
+/* Style the footer */
+.footer {
+  text-align: center;
+  padding: 20px 0;
+  background-color: #333; /* Dark background color for the footer */
+  color: #fff; /* White text color for the footer */
+}
+
+/* Add a hover effect to links */
+a {
+  color: #007BFF; /* Blue link color */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #0056b3; /* Darker blue on hover */
+}
+
+/* Add a subtle border to input fields on focus */
+input[type="text"]:focus, #text-input:focus {
+  border: 1px solid #007BFF;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Add a smooth transition to all elements */
+.transition {
+  transition: all 0.3s ease;
+}
+
+/* Style headings */
+h1, h2, h3, h4, h5, h6 {
+  color: #007BFF; /* Blue heading color */
+  margin-bottom: 10px;
+}
+
+/* Add some padding and margin to paragraphs */
+p {
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+/* Style ordered and unordered lists */
+ul, ol {
+  margin-left: 20px;
+}
+
+/* Style list items */
+li {
+  margin-bottom: 5px;
+}
+
+/* Add a subtle box-shadow to images */
+img {
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style blockquotes */
+blockquote {
+  background-color: #f8f8f8; /* Light gray background for blockquotes */
+  border-left: 4px solid #007BFF; /* Blue border on the left */
+  padding: 10px;
+  margin: 10px 0;
+}
+
+/* Style code blocks */
+pre {
+  background-color: #f8f8f8; /* Light gray background for code blocks */
+  padding: 10px;
+  border-radius: 5px;
+  overflow: auto;
+  border: 1px solid #ccc;
+  font-family: Consolas, monospace;
+}
+
+/* Add responsiveness */
+@media screen and (max-width: 768px) {
+  .container {
+    width: 90%;
+  }
+}
+
+/* Styling for UPPERCASE and lowercase buttons */
+#convertToUppercase,
+#convertToLowercase {
+  background-color: #076c76; 
+  color: #fff; /* White text color */
+  border: none;
+  border-radius: 5px;
+  padding: 5px 8px;
+  font-size: 14px;
+  cursor: pointer;
+  margin: 5px;
+  transition: background-color 0.3s ease;
+}
+
+#convertToUppercase:hover,
+#convertToLowercase:hover {
+  background-color: #3589d7; 
+}
+
+
+
